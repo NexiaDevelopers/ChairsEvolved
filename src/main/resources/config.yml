@@ -1,0 +1,9 @@
+### CHAIRS EVOLVED - EVEN BETTER THAN BEFORE (Hec devolved)
+
+enable-plugin: true
+empty-hand-to-sit: false
+empty-offhand-to-sit: false
+blacklisted-worlds:
+  - world_the_end
+enable-holograms: false
+debug-mode: false

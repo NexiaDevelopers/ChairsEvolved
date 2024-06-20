@@ -1,0 +1,22 @@
+### PLUGIN MESSAGES ###
+# These can be edited using Minecraft colour/formatting codes such as &6&k
+chat-prefix:
+plugin-reload:
+deny-command-no-permission:
+unknown-command:
+block-chair-toggle-on:
+block-chair-toggle-off:
+entity-chair-toggle-on:
+entity-chair-toggle-off:
+chair-deny-blacklisted-world:
+
+### HOLOGRAMS ###
+# This part of the file is a list of possible holograms that can appear above the player's head while sat down.
+# You can add as many holograms as you like.
+# enable-holograms in config.yml must be enabled for this to take effect.
+# Each entry into the list has an equal chance of appearing
+hologram-texts:
+  - "Hello There!"
+  - "My butt hurts... I've been sat down too long."
+  - "Slurrrppp... I'm drinking some tea."
+  - ""
