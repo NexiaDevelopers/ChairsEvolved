@@ -1,0 +1,4 @@
+name: ChairsEvolved
+version: '${project.version}'
+main: net.nexia.chairsevolved.ChairsEvolved
+api-version: '1.21'
