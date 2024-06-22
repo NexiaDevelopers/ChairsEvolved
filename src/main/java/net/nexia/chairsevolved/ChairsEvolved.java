@@ -1,7 +1,8 @@
 package net.nexia.chairsevolved;
 
+import net.nexia.nexiaapi.Config;
+
 import net.nexia.chairsevolved.commands.Commands;
-import net.nexia.chairsevolved.managers.DataManager;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -13,7 +14,9 @@ public final class ChairsEvolved extends JavaPlugin {
     public YamlConfiguration chairsYML;
     public static ChairsEvolved Instance;
 
-    public DataManager dataManager;
+    public Config chairsConfig;
+    public Config messageConfig;
+    public Config mainConfig;
 
     @Override
     public void onEnable() {
@@ -21,13 +24,11 @@ public final class ChairsEvolved extends JavaPlugin {
 
         Instance = this;
 
-        this.dataManager = new DataManager(this);
-
-        this.saveDefaultConfig();
-        registerConfig();
+        this.chairsConfig = new Config(this, "chairs.yml");
+        this.messageConfig = new Config(this, "messages.yml");
+        this.mainConfig = new Config(this, "config.yml");
 
         registerCommands();
-
     }
 
     @Override
