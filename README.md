@@ -2,8 +2,8 @@
 
 ## Core Features
 
-- [ ] Sit down on an armostand
-- [ ] Delete armorstand on stand (and disable?)
+- [x] Sit down on an armostand
+- [x] Delete armorstand on stand (and disable?)
 
 ## Planned Features
 
@@ -13,7 +13,7 @@
         - [ ] Blocks
         - [ ] Entities
     - [ ] Toggle All On/Off
-- [ ] Blacklisted worlds
+- [x] Blacklisted worlds
 - [ ] Permissions to sit
-- [ ] Flying chairs??????
-- [ ] Use mobs as chairs (and configurable)
+- [ ] ~~Flying chairs??????~~
+- [ ] ~~Use mobs as chairs (and configurable)~~

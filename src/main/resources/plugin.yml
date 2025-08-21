@@ -1,4 +1,7 @@
-name: ChairsEvolved
-version: '${project.version}'
-main: net.nexia.chairsevolved.ChairsEvolved
-api-version: '1.21'
+name: ${project.name}
+description: ${project.description}
+version: ${project.version}
+main: net.nexia.chairsEvolved.ChairsEvolved
+api-version: 1.21
+website: https://www.playnexia.net/
+authors: [ ItsGeppy ]
