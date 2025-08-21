@@ -4,7 +4,7 @@
   <groupId>net.nexia</groupId>
   <artifactId>ChairsEvolved</artifactId>
   <name>ChairsEvolved</name>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
   <description>Minecraft plugin that allows players to sit on different blocks.</description>
   <build>
     <defaultGoal>clean package</defaultGoal>
