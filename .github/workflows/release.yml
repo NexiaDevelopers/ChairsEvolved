@@ -2,31 +2,45 @@ name: Build and Release
 
 on:
   push:
-    tags:
-    - "v[0-9]+.[0-9]+.[0-9]+"
+    branches:
+      - main
+      - dev
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v5
-      with:
-        fetch-depth: 0
-    
-    - name: Set up JDK 21
-      uses: actions/setup-java@v4
-      with:
-        java-version: 21
-        distribution: temurin
-      
-    - name: Build with Maven
-      run: mvn -B package --file pom.xml
-    
-    - name: Get version
-      run: version=$(git describe --tags --abbrev=0 --match v*.*.*)
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
 
-    - name: Publish to GitHub Packages Apache Maven
-      run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
-      env:
-        GITHUB_TOKEN: ${{ github.token }}
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: 21
+          distribution: temurin
+
+      - name: Build with Maven
+        run: mvn -B package --file pom.xml
+
+      - name: Get project version
+        run: echo "VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
+
+      - name: Rename JAR with version
+        run: |
+          JAR_FILE=$(ls target/*.jar | head -n 1)
+          mv "$JAR_FILE" "target/ChairsEvolved-v${VERSION}.jar"
+
+      - name: Upload JAR artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ChairsEvolved-v${{ env.VERSION }}
+          path: target/ChairsEvolved-v${{ env.VERSION }}.jar
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: target/ChairsEvolved-v${{ env.VERSION }}.jar
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
