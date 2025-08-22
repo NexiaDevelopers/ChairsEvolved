@@ -27,6 +27,23 @@ jobs:
       - name: Get project version
         run: echo "VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
 
+      - name: Check if version tag already exists
+        run: |
+          if git ls-remote --tags origin "refs/tags/${VERSION}" | grep -q "${VERSION}"; then
+            echo "Tag ${VERSION} already exists. Exiting workflow."
+            exit 0
+          fi
+
+      - name: Set up git user info
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+      - name: Create new tag
+        run: |
+          git tag ${{ env.VERSION }}
+          git push origin ${{ env.VERSION }}
+
       - name: Rename JAR with version
         run: |
           JAR_FILE=$(ls target/*.jar | head -n 1)
