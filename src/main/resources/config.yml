@@ -1,9 +1,10 @@
-### CHAIRS EVOLVED - EVEN BETTER THAN BEFORE (Hec devolved)
-
-enable-plugin: true
-empty-hand-to-sit: false
-empty-offhand-to-sit: false
-blacklisted-worlds:
+require_empty_hand: true
+allow_chair_hopping: true
+blacklisted_worlds:
   - world_the_end
-enable-holograms: false
-debug-mode: false
+  - world_nether
+show_errors: true
+errors:
+  already_sitting: You're already sitting down!
+  occupied_chair: That chair is already occupied!
+  blacklisted_world: You cannot sit in ${world}!
