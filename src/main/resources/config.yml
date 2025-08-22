@@ -1,5 +1,5 @@
 require_empty_hand: true
-allow_chair_hopping: false
+allow_chair_hopping: true
 blacklisted_worlds:
   - world_the_end
   - world_nether
@@ -7,3 +7,4 @@ show_errors: true
 errors:
   already_sitting: You're already sitting down!
   occupied_chair: That chair is already occupied!
+  blacklisted_world: You cannot sit in ${world}!

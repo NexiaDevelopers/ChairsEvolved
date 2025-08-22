@@ -3,6 +3,7 @@ package net.nexia.chairsEvolved.listeners;
 import net.nexia.chairsEvolved.ChairsEvolved;
 import net.nexia.chairsEvolved.data.ConfigData;
 import net.nexia.chairsEvolved.managers.ChairManager;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.data.type.Slab;
@@ -46,6 +47,11 @@ public class BlockInteractListener implements Listener {
         }
 
         if (_configData.blacklistedWorlds.contains(player.getWorld().getName())) {
+            if (_configData.blacklistedWorldError != null) {
+                player.sendMessage(ChatColor.RED + _configData.blacklistedWorldError
+                        .replace("${world}", player.getWorld().getName())
+                );
+            }
             return;
         }
 

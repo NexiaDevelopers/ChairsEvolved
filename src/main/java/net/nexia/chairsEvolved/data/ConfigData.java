@@ -32,4 +32,7 @@ public class ConfigData extends CustomSerializer {
     @ResourceKey("errors.occupied_chair")
     public @Nullable String occupiedChairError;
 
+    @ResourceKey("errors.blacklisted_world")
+    public @Nullable String blacklistedWorldError;
+
 }
