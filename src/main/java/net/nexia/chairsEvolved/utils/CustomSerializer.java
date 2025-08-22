@@ -16,21 +16,21 @@ import java.util.Map;
 
 public class CustomSerializer implements ConfigurationSerializable {
 
-    private final JavaPlugin plugin;
-    private final String path;
+    final JavaPlugin _plugin;
+    final String _path;
 
     public CustomSerializer(JavaPlugin plugin, String path) {
-        this.plugin = plugin;
-        this.path = path;
+        this._plugin = plugin;
+        this._path = path;
     }
 
     protected File loadConfigFile() {
-        return loadConfigFile(path);
+        return loadConfigFile(_path);
     }
 
     protected File loadConfigFile(String path) {
         try {
-            File file = new File(plugin.getDataFolder(), path);
+            File file = new File(_plugin.getDataFolder(), path);
             if (!file.exists()) {
                 file.getParentFile().mkdirs();
                 file.createNewFile();
@@ -106,7 +106,7 @@ public class CustomSerializer implements ConfigurationSerializable {
     }
 
     public void save() {
-        save(path);
+        save(_path);
     }
 
     public void save(String path) {

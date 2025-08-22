@@ -16,8 +16,8 @@ public final class ChairsEvolved extends JavaPlugin {
         return _main;
     }
 
-    private ChairManager chairManager;
-    private ConfigData configData;
+    ChairManager _chairManager;
+    ConfigData _configData;
 
     @Override
     public void onEnable() {
@@ -27,10 +27,10 @@ public final class ChairsEvolved extends JavaPlugin {
 
         getConfig().options().copyDefaults(true);
 
-        configData = CustomSerializer.deserialize(ConfigData.class, this, "config.yml");
-        configData.save();
+        _configData = CustomSerializer.deserialize(ConfigData.class, this, "config.yml");
+        _configData.save();
 
-        chairManager = new ChairManager();
+        _chairManager = new ChairManager();
 
         registerEvents();
     }
@@ -41,17 +41,17 @@ public final class ChairsEvolved extends JavaPlugin {
     }
 
     public ChairManager getChairManager() {
-        return chairManager;
+        return _chairManager;
     }
 
     public ConfigData getConfigData() {
-        return configData;
+        return _configData;
     }
 
     @Override
     public void onDisable() {
         for (Player player : Bukkit.getOnlinePlayers()) {
-            chairManager.dismount(player);
+            _chairManager.dismount(player);
         }
     }
 

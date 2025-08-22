@@ -3,7 +3,9 @@ package net.nexia.chairsEvolved.data;
 import net.nexia.chairsEvolved.utils.CustomSerializer;
 import net.nexia.chairsEvolved.annotations.ResourceKey;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ConfigData extends CustomSerializer {
@@ -13,21 +15,21 @@ public class ConfigData extends CustomSerializer {
     }
 
     @ResourceKey("require_empty_hand")
-    public boolean requireEmptyHand;
+    public boolean requireEmptyHand = false;
 
     @ResourceKey("allow_chair_hopping")
-    public boolean allowChairHopping;
+    public boolean allowChairHopping = false;
 
     @ResourceKey("blacklisted_worlds")
-    public List<String> blacklistedWorlds;
+    public List<String> blacklistedWorlds = new ArrayList<>();
 
     @ResourceKey("show_errors")
-    public boolean showErrors;
+    public boolean showErrors = false;
 
     @ResourceKey("errors.already_sitting")
-    public String alreadySittingError;
+    public @Nullable String alreadySittingError;
 
     @ResourceKey("errors.occupied_chair")
-    public String occupiedChairError;
+    public @Nullable String occupiedChairError;
 
 }

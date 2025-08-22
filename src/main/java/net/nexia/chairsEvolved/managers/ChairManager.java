@@ -16,16 +16,16 @@ import java.util.Set;
 
 public class ChairManager {
 
-    final ConfigData configData = ChairsEvolved.getInstance().getConfigData();
-    final Set<ChairData> chairs = new HashSet<>();
+    final ConfigData _configData = ChairsEvolved.getInstance().getConfigData();
+    final Set<ChairData> _chairs = new HashSet<>();
 
     public void sit(Player player, Block block) {
         ChairData chair = new ChairData(player, block.getLocation());
 
-        if (!configData.allowChairHopping) {
+        if (!_configData.allowChairHopping) {
             if (isSitting(player)) {
-                if (configData.showErrors && configData.alreadySittingError != null) {
-                    player.sendMessage(ChatColor.RED + configData.alreadySittingError);
+                if (_configData.showErrors && _configData.alreadySittingError != null) {
+                    player.sendMessage(ChatColor.RED + _configData.alreadySittingError);
                 }
                 return;
             }
@@ -33,8 +33,8 @@ public class ChairManager {
 
         Player sittingPlayer = getSittingPlayer(block);
         if (sittingPlayer != null && sittingPlayer != player) {
-            if (configData.showErrors && configData.occupiedChairError != null) {
-                player.sendMessage(ChatColor.RED + configData.occupiedChairError);
+            if (_configData.showErrors && _configData.occupiedChairError != null) {
+                player.sendMessage(ChatColor.RED + _configData.occupiedChairError);
             }
             return;
         }
@@ -52,11 +52,11 @@ public class ChairManager {
         chair.task = Bukkit.getScheduler().runTaskTimerAsynchronously(ChairsEvolved.getInstance(), () ->
                 chair.armorStand.setRotation(player.getLocation().getYaw(), 0), 3, 3);
 
-        chairs.add(chair);
+        _chairs.add(chair);
     }
 
     public void dismount(Player player) {
-        Optional<ChairData> data = chairs.stream()
+        Optional<ChairData> data = _chairs.stream()
                 .filter(chair -> chair.player.equals(player))
                 .findFirst();
 
@@ -66,7 +66,7 @@ public class ChairManager {
 
         ChairData chair = data.get();
 
-        chairs.remove(chair);
+        _chairs.remove(chair);
 
         chair.task.cancel();
         chair.player.leaveVehicle();
@@ -82,15 +82,15 @@ public class ChairManager {
     }
 
     public boolean isSitting(Player player) {
-        return chairs.stream().anyMatch(chair -> chair.player.equals(player));
+        return _chairs.stream().anyMatch(chair -> chair.player.equals(player));
     }
 
     public boolean isChair(Block block) {
-        return chairs.stream().anyMatch(chair -> chair.location.equals(block.getLocation()));
+        return _chairs.stream().anyMatch(chair -> chair.location.equals(block.getLocation()));
     }
 
     public Player getSittingPlayer(Block block) {
-        return chairs.stream()
+        return _chairs.stream()
                 .filter(chair -> chair.location.equals(block.getLocation()))
                 .map(chair -> chair.player)
                 .findFirst()

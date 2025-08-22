@@ -16,8 +16,8 @@ import org.bukkit.inventory.EquipmentSlot;
 
 public class BlockInteractListener implements Listener {
 
-    final ChairManager chairManager = ChairsEvolved.getInstance().getChairManager();
-    final ConfigData configData = ChairsEvolved.getInstance().getConfigData();
+    final ChairManager _chairManager = ChairsEvolved.getInstance().getChairManager();
+    final ConfigData _configData = ChairsEvolved.getInstance().getConfigData();
 
     @EventHandler
     public void onBlockRightClick(PlayerInteractEvent e) {
@@ -33,15 +33,19 @@ public class BlockInteractListener implements Listener {
             return;
         }
 
-        if (configData.requireEmptyHand && player.getInventory().getItemInMainHand().getType() != Material.AIR) {
-            return;
-        }
-
-        if (configData.blacklistedWorlds.contains(player.getWorld().getName())) {
-            return;
-        }
-
         if (clickedBlock == null) {
+            return;
+        }
+
+        if (clickedBlock.getLocation().add(0, 1, 0).getBlock().getType() != Material.AIR) {
+            return;
+        }
+
+        if (_configData.requireEmptyHand && player.getInventory().getItemInMainHand().getType() != Material.AIR) {
+            return;
+        }
+
+        if (_configData.blacklistedWorlds.contains(player.getWorld().getName())) {
             return;
         }
 
@@ -57,7 +61,7 @@ public class BlockInteractListener implements Listener {
             return;
         }
 
-        chairManager.sit(player, clickedBlock);
+        _chairManager.sit(player, clickedBlock);
 
     }
 }

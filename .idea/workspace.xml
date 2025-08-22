@@ -6,8 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="eca28307-20d5-4ca4-b450-b99abd0910da" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dependency-reduced-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dependency-reduced-pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/nexia/chairsEvolved/ChairsEvolved.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/nexia/chairsEvolved/ChairsEvolved.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/nexia/chairsEvolved/data/ConfigData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/nexia/chairsEvolved/data/ConfigData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/nexia/chairsEvolved/listeners/BlockInteractListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/nexia/chairsEvolved/listeners/BlockInteractListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/nexia/chairsEvolved/listeners/DismountListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/nexia/chairsEvolved/listeners/DismountListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/nexia/chairsEvolved/managers/ChairManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/nexia/chairsEvolved/managers/ChairManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/nexia/chairsEvolved/utils/CustomSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/nexia/chairsEvolved/utils/CustomSerializer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +68,7 @@
     "Maven.ChairsEvolved [verify].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "dev",
+    "git-widget-placeholder": "#1 on dev",
     "ignore.virus.scanning.warn.message": "true",
     "jdk.selected.JDK": "24",
     "kotlin-language-version-configured": "true",
