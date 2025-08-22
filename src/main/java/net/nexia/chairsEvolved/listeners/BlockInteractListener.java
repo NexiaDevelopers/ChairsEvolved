@@ -46,15 +46,6 @@ public class BlockInteractListener implements Listener {
             return;
         }
 
-        if (_configData.blacklistedWorlds.contains(player.getWorld().getName())) {
-            if (_configData.blacklistedWorldError != null) {
-                player.sendMessage(ChatColor.RED + _configData.blacklistedWorldError
-                        .replace("${world}", player.getWorld().getName())
-                );
-            }
-            return;
-        }
-
         if (clickedBlock.getBlockData() instanceof Stairs stairs) {
             if (stairs.getHalf() != Stairs.Half.BOTTOM) {
                 return;
@@ -64,6 +55,15 @@ public class BlockInteractListener implements Listener {
                 return;
             }
         } else {
+            return;
+        }
+
+        if (_configData.blacklistedWorlds.contains(player.getWorld().getName())) {
+            if (_configData.blacklistedWorldError != null) {
+                player.sendMessage(ChatColor.RED + _configData.blacklistedWorldError
+                        .replace("${world}", player.getWorld().getName())
+                );
+            }
             return;
         }
 
