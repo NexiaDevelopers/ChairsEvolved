@@ -7,6 +7,7 @@ import net.nexia.chairsEvolved.managers.ChairManager;
 import net.nexia.chairsEvolved.utils.CustomSerializer;
 import net.nexia.nexiaapi.command.CommandHandler;
 import net.nexia.nexiaapi.command.PlayerCommand;
+import net.nexia.nexiaapi.util.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.NamespacedKey;
@@ -48,8 +49,8 @@ public final class ChairsEvolved extends JavaPlugin {
             boolean canSit = container.getOrDefault(toggleKey, PersistentDataType.BOOLEAN, false);
             container.set(toggleKey, PersistentDataType.BOOLEAN, !canSit);
             player.sendMessage(ChatColor.GREEN + (canSit ?
-                    _configData.getRandomEnabledMessage() :
-                    _configData.getRandomDisabledMessage())
+                    Utils.color(_configData.getRandomEnabledMessage()):
+                    Utils.color(_configData.getRandomDisabledMessage()))
             );
         }));
 

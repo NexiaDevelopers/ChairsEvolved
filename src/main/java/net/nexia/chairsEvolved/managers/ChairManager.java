@@ -3,8 +3,8 @@ package net.nexia.chairsEvolved.managers;
 import net.nexia.chairsEvolved.ChairsEvolved;
 import net.nexia.chairsEvolved.data.ChairData;
 import net.nexia.chairsEvolved.data.ConfigData;
+import net.nexia.nexiaapi.util.Utils;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.entity.ArmorStand;
@@ -27,7 +27,7 @@ public class ChairManager {
         if (!_configData.allowChairHopping) {
             if (isSitting(player)) {
                 if (_configData.showErrors && _configData.alreadySittingError != null) {
-                    player.sendMessage(ChatColor.RED + _configData.alreadySittingError);
+                    player.sendMessage(Utils.color(_configData.alreadySittingError));
                 }
                 return;
             }
@@ -42,7 +42,7 @@ public class ChairManager {
         Player sittingPlayer = getSittingPlayer(block);
         if (sittingPlayer != null && sittingPlayer != player) {
             if (_configData.showErrors && _configData.occupiedChairError != null) {
-                player.sendMessage(ChatColor.RED + _configData.occupiedChairError);
+                player.sendMessage(Utils.color(_configData.occupiedChairError));
             }
             return;
         }
