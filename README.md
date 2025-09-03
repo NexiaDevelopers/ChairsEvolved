@@ -12,7 +12,7 @@
     - [ ] GUI
         - [ ] Blocks
         - [ ] Entities
-    - [ ] Toggle All On/Off
+    - [x] Toggle All On/Off
 - [x] Blacklisted worlds
 - [ ] Permissions to sit
 - [ ] ~~Flying chairs??????~~

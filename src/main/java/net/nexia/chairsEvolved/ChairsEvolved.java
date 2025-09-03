@@ -5,8 +5,15 @@ import net.nexia.chairsEvolved.listeners.BlockInteractListener;
 import net.nexia.chairsEvolved.listeners.DismountListener;
 import net.nexia.chairsEvolved.managers.ChairManager;
 import net.nexia.chairsEvolved.utils.CustomSerializer;
+import net.nexia.nexiaapi.command.CommandHandler;
+import net.nexia.nexiaapi.command.PlayerCommand;
+import net.nexia.nexiaapi.util.Utils;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;
+import org.bukkit.persistence.PersistentDataContainer;
+import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class ChairsEvolved extends JavaPlugin {
@@ -15,6 +22,8 @@ public final class ChairsEvolved extends JavaPlugin {
     public static ChairsEvolved getInstance() {
         return _main;
     }
+
+    public NamespacedKey toggleKey;
 
     ChairManager _chairManager;
     ConfigData _configData;
@@ -31,6 +40,19 @@ public final class ChairsEvolved extends JavaPlugin {
         _configData.save();
 
         _chairManager = new ChairManager();
+
+        toggleKey = new NamespacedKey(this, "chairs.toggle");
+        CommandHandler handler = new CommandHandler(this, "chairs");
+        handler.addCommand(new PlayerCommand("toggle", (sender, args) -> {
+            Player player = (Player) sender;
+            PersistentDataContainer container = player.getPersistentDataContainer();
+            boolean canSit = container.getOrDefault(toggleKey, PersistentDataType.BOOLEAN, false);
+            container.set(toggleKey, PersistentDataType.BOOLEAN, !canSit);
+            player.sendMessage(ChatColor.GREEN + (canSit ?
+                    Utils.color(_configData.getRandomEnabledMessage()):
+                    Utils.color(_configData.getRandomDisabledMessage()))
+            );
+        }));
 
         registerEvents();
     }

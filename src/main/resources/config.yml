@@ -5,6 +5,19 @@ blacklisted_worlds:
   - world_nether
 show_errors: true
 errors:
-  already_sitting: You're already sitting down!
-  occupied_chair: That chair is already occupied!
-  blacklisted_world: You cannot sit in ${world}!
+  already_sitting: "&cYou're already sitting down!"
+  occupied_chair: "&cThat chair is already occupied!"
+  blacklisted_world: "&cYou cannot sit in ${world}!"
+messages:
+  enabled:
+    - "&aYour sitting powers have been restored!"
+    - "&aYou can sit again!"
+    - "&aYour butt is now chair-compatible."
+    - "&aYou may now rest again."
+    - "&aIt's relax o'clock!"
+  disabled:
+    - "&aChairs have gone on a vacation."
+    - "&aYou're now stuck on stand-only mode."
+    - "&aYou are now unable to sit down."
+    - "&aTime for outstanding adventures!"
+    - "&aChairs are on a strike."
