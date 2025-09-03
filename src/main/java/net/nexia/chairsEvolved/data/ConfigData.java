@@ -7,6 +7,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class ConfigData extends CustomSerializer {
 
@@ -34,5 +35,19 @@ public class ConfigData extends CustomSerializer {
 
     @ResourceKey("errors.blacklisted_world")
     public @Nullable String blacklistedWorldError;
+
+    @ResourceKey("messages.enabled")
+    public List<String> enabledMessages;
+
+    @ResourceKey("messages.disabled")
+    public List<String> disabledMessages;
+
+    public String getRandomEnabledMessage() {
+        return enabledMessages.get(new Random().nextInt(enabledMessages.size()));
+    }
+
+    public String getRandomDisabledMessage() {
+        return disabledMessages.get(new Random().nextInt(disabledMessages.size()));
+    }
 
 }

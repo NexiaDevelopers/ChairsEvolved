@@ -5,3 +5,8 @@ main: net.nexia.chairsEvolved.ChairsEvolved
 api-version: 1.21
 website: https://www.playnexia.net/
 authors: [ ItsGeppy ]
+depend: [ NexiaAPI ]
+commands:
+  chairs:
+    description: Lets players toggle whether or not right clicking a slab/chair makes them sit down.
+    usage: "Usage: /<command> toggle"

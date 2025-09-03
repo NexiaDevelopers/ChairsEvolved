@@ -9,6 +9,8 @@ import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Player;
+import org.bukkit.persistence.PersistentDataContainer;
+import org.bukkit.persistence.PersistentDataType;
 
 import java.util.HashSet;
 import java.util.Optional;
@@ -29,6 +31,12 @@ public class ChairManager {
                 }
                 return;
             }
+        }
+
+        // If player has toggled chairs
+        PersistentDataContainer container = player.getPersistentDataContainer();
+        if (container.getOrDefault(ChairsEvolved.getInstance().toggleKey, PersistentDataType.BOOLEAN, false)) {
+            return;
         }
 
         Player sittingPlayer = getSittingPlayer(block);

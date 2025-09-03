@@ -8,3 +8,16 @@ errors:
   already_sitting: You're already sitting down!
   occupied_chair: That chair is already occupied!
   blacklisted_world: You cannot sit in ${world}!
+messages:
+  enabled:
+    - Your sitting powers have been restored!
+    - You can sit again!
+    - Your butt is now chair-compatible.
+    - You may now rest again.
+    - It's relax o'clock!
+  disabled:
+    - Chairs have gone on a vacation.
+    - You're now stuck on stand-only mode.
+    - You are now unable to sit down.
+    - Time for outstanding adventures!
+    - Chairs are on a strike.
